@@ -2,6 +2,7 @@ package main
 
 import (
 	"keeper/handler"
+	"os"
 
 	"github.com/gin-gonic/gin"
 )
@@ -12,7 +13,12 @@ func main() {
 	v1 := r.Group("v1")
 	router(v1)
 
-	r.Run(":8183")
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8183"
+	}
+
+	r.Run(port)
 }
 
 func router(r *gin.RouterGroup) {
