@@ -18,7 +18,7 @@ func main() {
 		port = "8183"
 	}
 
-	r.Run(port)
+	r.Run(":"+port)
 }
 
 func router(r *gin.RouterGroup) {
